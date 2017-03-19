@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mini-NGram Viewer!</title>
+    </head>
+    <body>
+        <h1>Mini-Ngram Viewer</h1>
+        <hr>
+        {% csrf_token %}
+        <form action="/view_ngram" method="get">
+          Comma-separated phrases: <input type="text" size="60" maxlength="240" name="ngram_query"><br>
+          between: <input type="text" size="4" maxlength="4" name="start"> and  <input type="text" size="4" maxlength="4" name="end"> from the given corpus.
+            <input type="submit" value="Search from Corpus">
+        </form>
+    </body>
+</html>
