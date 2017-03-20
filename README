@@ -1,0 +1,43 @@
+This project, Mini-Ngram viewer is minimal version of Google Book’s Ngram Viewer (https://books.google.com/ngrams/)
+
+This project is built in Python + Django for web hosting.
+
+For charting functionality, I have used - Graphos Charting Library (http://agiliq.com/demo/graphos/)
+
+############################## SETUP ##############################################
+
+The following steps are to setup the project -
+
+1. Download the project, unzip it and place it a directory
+
+2. cd /path/to/directory
+
+3. Run 
+
+pip install -r requirements.txt
+
+This will install the required packages needed
+
+4. Run
+
+python manage.py runserver
+
+5. Check the terminal to see if the server is running
+
+6. Go to -
+
+https://127.0.0.1:8000/ngram_viewer_app/
+
+on your browser
+
+############################## RESULT ##############################################
+
+The project supports 5-grams, However, it takes 17 mins to process the corpus for 5 grams. 
+
+4-gram - 12 mins
+3-gram - 7 mins
+2-gram - 3 mins
+1-gram - less than a min
+
+You can change the number of grams to process in constants.py file. The variable is NGRAMS. By default it is set to 3.
+

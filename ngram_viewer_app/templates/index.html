@@ -1,5 +1,15 @@
 <html>
     <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
         <meta charset="utf-8">
         <title>Mini-NGram Viewer!</title>
     </head>
@@ -9,7 +19,30 @@
         <form action="" method="get">
           Comma-separated phrases: <input type="text" size="60" maxlength="240" name="ngram_query" value="{{ ngram_query }}"><br>
           between: <input type="text" size="4" maxlength="4" name="start" value="{{ start }}"> and  <input type="text" value="{{ end }}" size="4" maxlength="4" name="end"> from the given corpus.
-            <input type="submit" value="Search from Corpus">
+            <input type="submit" style="font-face: 'Arial'; font-size: large; color: white; background-color: #4d90fe;" value="Search from Corpus">
         </form>
+        {{ g_chart.as_html }}
+        {% if showResult %}
+            <table style="width:100%">
+            <tr>
+                <th>Ngram Query</th>
+                <th>Year</th>
+                <th>Ngram Count</th>
+                <th>Total Ngram Word Count</th>
+                <th>Distribution</th>
+            </tr>
+            {% for res, yearDict in result.items %}
+                {% for year, val in yearDict.items %}
+                <tr>
+                    <th>{{ res }}</th>
+                    <th>{{ year }}</th>
+                    <th>{{ val.0 }}</th>
+                    <th>{{ val.1 }}</th>
+                    <th> {{ val.2 }}</th>
+                </tr>
+                {% endfor %}<tr></tr>
+            {% endfor %}
+            </table>
+        {% endif %}
     </body>
 </html>
